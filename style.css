@@ -1,0 +1,77 @@
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: radial-gradient(circle at center, #1a002f, #000010, #000000);
+    overflow:hidden;
+}
+
+/* yulduzlar */
+body::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 2px, transparent 2px);
+    background-size: 100px 100px, 150px 150px, 200px 200px;
+    animation: starsMove 50s linear infinite;
+}
+
+@keyframes starsMove{
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(-500px);
+    }
+}
+
+/* yurak */
+.heart{
+    position:relative;
+    width:200px;
+    height:200px;
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
+    transform: rotate(-45deg);
+    animation: glow 2s infinite alternate;
+}
+
+/* yurak yuqori doiralari */
+.heart::before,
+.heart::after{
+    content:"";
+    position:absolute;
+    width:200px;
+    height:200px;
+    background: linear-gradient(45deg, #ff00cc, #00ffff);
+    border-radius:50%;
+}
+
+.heart::before{
+    top:-100px;
+    left:0;
+}
+
+.heart::after{
+    left:100px;
+    top:0;
+}
+
+/* glow effekt */
+@keyframes glow{
+    from{
+        box-shadow:
+        0 0 20px #ff00cc,
+        0 0 40px #3333ff;
+    }
+    to{
+        box-shadow:
+        0 0 40px #00ffff,
+        0 0 80px #ff00cc;
+    }
+}
